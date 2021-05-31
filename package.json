@@ -16,6 +16,7 @@
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks",
     "prettier": "prettier --check \"./**/*.{ts,js,yml}\"",
+    "remove-broken-links": "node script/remove-broken-links.js --delete",
     "test": "mocha --reporter min test/human-data.js test/colors-spec.js && prettier --check \"./**/*.{ts,js,yml}\" --write",
     "test:debug": "mocha --reporter spec test/human-data.js test/colors-spec.js && prettier --check \"./**/*.{ts,js,yml}\" --write",
     "pretest-all": "npm run build",
@@ -34,6 +35,7 @@
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)",
   "license": "MIT",
   "devDependencies": {
+    "@octokit/action": "^3.0.0",
     "@octokit/rest": "^16",
     "@zeit/fetch-retry": "^5.0.0",
     "bottleneck": "^1.16.0",
@@ -44,6 +46,7 @@
     "color-convert": "^1.9.1",
     "count-array-values": "^1.2.1",
     "dotenv-safe": "^4.0.4",
+    "fs-extra": "^9.0.1",
     "get-image-colors": "^1.8.1",
     "github-url-to-object": "^4.0.2",
     "human-interval": "^0.1.6",
@@ -70,7 +73,8 @@
     "sharp": "^0.23.0",
     "sinon": "^7.2.2",
     "slugg": "^1.1.0",
-    "yaml": "^1.9.2"
+    "yaml": "^1.9.2",
+    "yargs": "^15.4.0"
   },
   "engines": {
     "node": ">=8"
